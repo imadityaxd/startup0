@@ -1,25 +1,21 @@
 import express from "express";
-import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import startupRoutes from "./routes/startups.js";
 
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // for parsing application/json
 
-const startupsRouter = require("./routes/startups");
-app.use("/api/startups", startupsRouter);
+// Routes
+app.use("/api/startups", startupRoutes);
 
-mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() =>
-    app.listen(5000, () =>
-      console.log("Server running on http://localhost:5000")
-    )
-  )
-  .catch((err) => console.error(err));
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
