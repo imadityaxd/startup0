@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchStartups } from "../services/api";
+import Loader from "./Loading";
 
 const ProductCard = ({
   image,
@@ -116,8 +117,13 @@ const ProductGrid = () => {
     getStartups();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading)
+    return (
+      <p className="w-full h-[80vh] flex justify-center items-center">
+        <Loader />
+      </p>
+    );
+  if (error) return <p className="w-full h-[80vh] flex justify-center items-center text-center text-red-500 text-3xl">Ops:{error}</p>;
 
   return (
     <div className="text-center p-10 pt-32">
