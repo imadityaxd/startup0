@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import StartupForm from './components/StartupForm';
+import Home from './pages/Home';
+import './App.css';
 
 const App = () => {
     const [startups, setStartups] = useState([]);
@@ -19,7 +21,8 @@ const App = () => {
 
     return (
         <div>
-            <h1>Support Startups</h1>
+            <Home/>
+            <h1 className="text-6xl text-red-600">Support Startups</h1>
             <StartupForm setStartups={setStartups} />
             <ul>
                 {startups.map(startup => (
