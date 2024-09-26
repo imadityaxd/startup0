@@ -7,6 +7,7 @@ import Footer from "./components/footer";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import { Toaster } from "react-hot-toast";
+import DummyPaymentForm from "./components/PaymentForm";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/startups" element={<ProductGrid />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<GetStartedSection />} />
+          <Route path="/payment" element={<DummyPaymentForm />} />
         </Routes>
       </Router>
       <Footer />

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchStartups } from "../services/api";
 import Loader from "./Loading";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({
   image,
@@ -44,9 +45,11 @@ const ProductCard = ({
             </p>
           </div>
 
-          <button className="w-full mt-4 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition duration-300">
-            Contribute Now
-          </button>
+          <Link to="/payment">
+            <button className="w-full mt-4 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition duration-300">
+              Contribute Now
+            </button>
+          </Link>
         </div>
       </a>
     </div>
