@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import startupRoutes from "./routes/startups.js";
+import router from "./routes/startup.route.js";
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json()); // for parsing application/json
 
 // Routes
-app.use("/api/startups", startupRoutes);
+app.use("/api/startups", router);
 
 // Start server
 app.listen(PORT, () => {
