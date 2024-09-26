@@ -2,27 +2,27 @@ import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from
 
 const features = [
   {
-    name: 'Push to deploy',
+    name: 'Curated Listings:',
     description:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
+      ' Discover innovative startups and groundbreaking ideas across various industries. We provide a comprehensive database that helps you find the perfect match for investment or collaboration.',
     icon: CloudArrowUpIcon,
   },
   {
-    name: 'SSL certificates',
+    name: 'Expert Resources',
     description:
-      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
+      ' Access a wealth of knowledge with our guides, webinars, and articles crafted by industry veterans. From securing funding to mastering marketing strategies, we’ve got you covered.',
     icon: LockClosedIcon,
   },
   {
-    name: 'Simple queues',
+    name: 'Community Support',
     description:
-      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
+      'Join a vibrant community of entrepreneurs and investors. Network, share experiences, and learn from one another in a collaborative environment that fosters growth.',
     icon: ArrowPathIcon,
   },
   {
-    name: 'Advanced security',
+    name: 'Tailored Opportunities',
     description:
-      'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
+      'Our platform connects you with potential investors and partners tailored to your unique needs, ensuring you get the support that truly accelerates your potential.',
     icon: FingerPrintIcon,
   },
 ]
@@ -32,9 +32,9 @@ export default function Features() {
     <div className="bg-white py-12 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">Where Visionaries Find Support</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Everything you need to deploy your app
+          Why Choose Us?
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum

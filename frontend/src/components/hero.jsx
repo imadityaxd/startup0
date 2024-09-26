@@ -21,7 +21,7 @@ export default function Hero() {
         <nav aria-label="Global" className="flex items-center justify-between  p-6 lg:px-8 ">
           <div className=" flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
+              <span className="sr-only">Startupify</span>
               <img
                 alt=""
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
@@ -57,7 +57,7 @@ export default function Hero() {
           <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
+                <span className="sr-only">Startupify</span>
                 <img
                   alt=""
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
@@ -91,7 +91,7 @@ export default function Hero() {
                     href="#"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    Log in
+                    Contact Us
                   </a>
                 </div>
               </div>
@@ -125,11 +125,10 @@ export default function Hero() {
           </div>
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Data to enrich your online business
+            Accelerate Your Startup’s Potential
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-              fugiat veniam occaecat fugiat aliqua.
+            At Startupify, we believe that every great idea deserves the chance to thrive. Whether you're an aspiring entrepreneur or an established startup looking for growth, our platform is designed to empower you at every stage of your journey.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
