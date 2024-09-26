@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Logo = () => (
   <a href="/" className="block w-56 mb-10">

@@ -1,39 +1,48 @@
-import React from 'react';
+const ProductCard = ({
+  image,
+  brand,
+  description,
+  fundingGoal,
+  amountRaised,
+}) => {
+  const progressPercentage = (amountRaised / fundingGoal) * 100;
+  console.log(amountRaised);
 
-const ProductCard = ({ image, brand, name, price, originalPrice }) => {
   return (
-    <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl ">
-      <a href="#">
+    <div className="w-full max-w-xs bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl m-4">
+      <a href="#" className="block">
         <img
           src={image}
-          alt="Product"
-          className="h-80 w-72 object-cover rounded-t-xl"
+          alt={brand}
+          className="h-52 w-full object-cover rounded-t-xl"
         />
-        <div className="px-4 py-3 w-72">
-          <span className="text-gray-400 mr-3 uppercase text-xs">{brand}</span>
-          <p className="text-lg font-bold text-black truncate block capitalize">{name}</p>
-          <div className="flex items-center">
-            <p className="text-lg font-semibold text-black cursor-auto my-3">{price}</p>
-            <del>
-              <p className="text-sm text-gray-600 cursor-auto ml-2">{originalPrice}</p>
-            </del>
-            <div className="ml-auto">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                className="bi bi-bag-plus"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"
-                />
-                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-              </svg>
+        <div className="px-4 py-3">
+          <span className="text-lg font-bold text-black truncate block capitalize">
+            {brand}
+          </span>
+          <p className="text-gray-600 text-sm">{description}</p>
+
+          <div className="my-3">
+            <p className="text-gray-500 text-xs">
+              Funding Goal: ${fundingGoal}
+            </p>
+            <p className="text-gray-500 text-xs">
+              Amount Raised: ${amountRaised}
+            </p>
+            <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
+              <div
+                className="bg-blue-500 h-2 rounded-full"
+                style={{ width: `${progressPercentage}%` }}
+              ></div>
             </div>
+            <p className="text-right text-xs text-gray-500">
+              {progressPercentage.toFixed(0)}% funded
+            </p>
           </div>
+
+          <button className="w-full mt-4 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition duration-300">
+            Contribute Now
+          </button>
         </div>
       </a>
     </div>
@@ -43,48 +52,100 @@ const ProductCard = ({ image, brand, name, price, originalPrice }) => {
 const ProductGrid = () => {
   const products = [
     {
-      image: "https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      brand: "Brand",
-      name: "Product Name",
-      price: "$149",
-      originalPrice: "$199"
+      id: 1,
+      image: "https://via.placeholder.com/150/0000FF/FFFFFF?text=TechNova",
+      brand: "TechNova",
+      description:
+        "A cutting-edge AI startup revolutionizing the tech industry.",
+      fundingGoal: 50000,
+      amountRaised: 20000,
     },
     {
-      image: "https://images.unsplash.com/photo-1651950519238-15835722f8bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      brand: "Brand",
-      name: "Product Name",
-      price: "$149",
-      originalPrice: "$199"
+      id: 2,
+      brand: "EcoEnergy",
+      description: "Providing affordable, sustainable energy solutions.",
+      image: "https://via.placeholder.com/150/008000/FFFFFF?text=EcoEnergy",
+      fundingGoal: 75000,
+      amountRaised: 30000,
     },
     {
-      image: "https://images.unsplash.com/photo-1651950537598-373e4358d320?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MjV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      brand: "Brand",
-      name: "Product Name",
-      price: "$149",
-      originalPrice: "$199"
+      id: 3,
+      brand: "Healthify",
+      description: "A healthcare platform connecting patients and doctors.",
+      image: "https://via.placeholder.com/150/FF0000/FFFFFF?text=Healthify",
+      fundingGoal: 60000,
+      amountRaised: 45000,
     },
     {
-      image: "https://images.unsplash.com/photo-1651950540805-b7c71869e689?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      brand: "Brand",
-      name: "Product Name",
-      price: "$149",
-      originalPrice: "$199"
+      id: 4,
+      brand: "EduVerse",
+      description:
+        "Creating immersive learning experiences using virtual reality.",
+      image: "https://via.placeholder.com/150/FFA500/FFFFFF?text=EduVerse",
+      fundingGoal: 100000,
+      amountRaised: 70000,
     },
     {
-      image: "https://images.unsplash.com/photo-1649261191624-ca9f79ca3fc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      brand: "Brand",
-      name: "Product Name",
-      price: "$149",
-      originalPrice: "$199"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1649261191606-cb2496e97eee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      brand: "Brand",
-      name: "Product Name",
-      price: "$149",
-      originalPrice: "$199"
+      id: 5,
+      brand: "GreenGro",
+      description:
+        "Dedicated to urban farming and fresh produce accessibility.",
+      image: "https://via.placeholder.com/150/00FFFF/FFFFFF?text=GreenGro",
+      fundingGoal: 30000,
+      amountRaised: 15000,
     },
   ];
+
+  // const products = [
+  //   {
+  //     image:
+  //       "https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  //     brand: "Brand",
+  //     name: "Product Name",
+  //     price: "$149",
+  //     originalPrice: "$199",
+  //   },
+  //   {
+  //     image:
+  //       "https://images.unsplash.com/photo-1651950519238-15835722f8bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  //     brand: "Brand",
+  //     name: "Product Name",
+  //     price: "$149",
+  //     originalPrice: "$199",
+  //   },
+  //   {
+  //     image:
+  //       "https://images.unsplash.com/photo-1651950537598-373e4358d320?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MjV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  //     brand: "Brand",
+  //     name: "Product Name",
+  //     price: "$149",
+  //     originalPrice: "$199",
+  //   },
+  //   {
+  //     image:
+  //       "https://images.unsplash.com/photo-1651950540805-b7c71869e689?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  //     brand: "Brand",
+  //     name: "Product Name",
+  //     price: "$149",
+  //     originalPrice: "$199",
+  //   },
+  //   {
+  //     image:
+  //       "https://images.unsplash.com/photo-1649261191624-ca9f79ca3fc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  //     brand: "Brand",
+  //     name: "Product Name",
+  //     price: "$149",
+  //     originalPrice: "$199",
+  //   },
+  //   {
+  //     image:
+  //       "https://images.unsplash.com/photo-1649261191606-cb2496e97eee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  //     brand: "Brand",
+  //     name: "Product Name",
+  //     price: "$149",
+  //     originalPrice: "$199",
+  //   },
+  // ];
 
   return (
     <div className="text-center p-10">
@@ -98,22 +159,23 @@ const ProductGrid = () => {
             key={index}
             image={product.image}
             brand={product.brand}
-            name={product.name}
-            price={product.price}
-            originalPrice={product.originalPrice}
+            description={product.description}
+            amountRaised={product.amountRaised}
+            fundingGoal={product.fundingGoal}
+            // price={product.price}
+            // originalPrice={product.originalPrice}
           />
         ))}
       </section>
       <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              Check the full list of amazing startups.{' '}
-              <a href="#" className="font-semibold text-indigo-600">
-                <span aria-hidden="true" className="absolute inset-0" />
-                Browse more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </div>
-      
+        <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+          Check the full list of amazing startups.{" "}
+          <a href="#" className="font-semibold text-indigo-600">
+            <span aria-hidden="true" className="absolute inset-0" />
+            Browse more <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

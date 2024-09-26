@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -128,7 +126,7 @@ export default function Hero() {
             Accelerate Your Startup’s Potential
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-            At Startupify, we believe that every great idea deserves the chance to thrive. Whether you're an aspiring entrepreneur or an established startup looking for growth, our platform is designed to empower you at every stage of your journey.
+            At Startupify, we believe that every great idea deserves the chance to thrive. Whether you&apos;re an aspiring entrepreneur or an established startup looking for growth, our platform is designed to empower you at every stage of your journey.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
