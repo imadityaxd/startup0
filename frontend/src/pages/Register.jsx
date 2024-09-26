@@ -1,25 +1,33 @@
 import { useState } from "react";
 import { createStartup } from "../services/api";
+import Loader from "../components/Loading";
+import toast from "react-hot-toast";
 
 export default function Register() {
-  const [startupData, setStartupData] = useState({
+  const initialState = {
     // image: "",
     brand: "",
     description: "",
     fundingGoal: 0,
     amountRaised: 0,
-  });
-  console.log(startupData);
-  // https://robohash.org/
+  };
+  const [loading, setLoading] = useState(false);
+  const [startupData, setStartupData] = useState(initialState);
+  // console.log(startupData);
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     // setStartupData({ ...startupData, image: startupData.brand });
     try {
-      const data = await createStartup(startupData);
-      console.log("data:", data);
+      await createStartup(startupData);
+      setStartupData(initialState);
+      toast.success("startup data submitted");
     } catch (error) {
       console.log(error);
+      toast.error("failed to submit data");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -42,6 +50,7 @@ export default function Register() {
             onChange={(e) =>
               setStartupData({ ...startupData, brand: e.target.value })
             }
+            value={startupData.brand}
           />
         </div>
         <div className="mb-5">
@@ -60,6 +69,7 @@ export default function Register() {
             onChange={(e) =>
               setStartupData({ ...startupData, description: e.target.value })
             }
+            value={startupData.description}
           />
         </div>
         <div className="mb-5">
@@ -78,14 +88,18 @@ export default function Register() {
             onChange={(e) =>
               setStartupData({ ...startupData, fundingGoal: e.target.value })
             }
+            value={startupData.fundingGoal}
           />
         </div>
 
         <button
           type="submit"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className={`text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ${
+            loading && "bg-gray-700"
+          }`}
+          disabled={loading}
         >
-          Submit
+          {loading ? <Loader /> : "Submit"}
         </button>
       </form>
     </div>

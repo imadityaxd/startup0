@@ -6,6 +6,7 @@ import GetStartedSection from "./components/cta";
 import Footer from "./components/footer";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         </Routes>
       </Router>
       <Footer />
+      <Toaster />
     </div>
   );
 };

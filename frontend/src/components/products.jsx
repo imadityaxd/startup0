@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchStartups } from "../services/api";
 import Loader from "./Loading";
+import toast from "react-hot-toast";
 
 const ProductCard = ({
   image,
@@ -109,6 +110,7 @@ const ProductGrid = () => {
         setStartups(data); // Set the startups in state
       } catch (err) {
         setError("Failed to fetch startups");
+        toast.error("An error occured in fetching api");
         console.log("error: ", err);
       } finally {
         setLoading(false); // Stop loading
@@ -123,7 +125,12 @@ const ProductGrid = () => {
         <Loader />
       </p>
     );
-  if (error) return <p className="w-full h-[80vh] flex justify-center items-center text-center text-red-500 text-3xl">Ops:{error}</p>;
+  if (error)
+    return (
+      <p className="w-full h-[80vh] flex justify-center items-center text-center text-red-500 text-3xl">
+        Ops:{error}
+      </p>
+    );
 
   return (
     <div className="text-center p-10 pt-32">
