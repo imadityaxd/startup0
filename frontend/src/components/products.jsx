@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import { fetchStartups } from "../services/api";
+
 const ProductCard = ({
   image,
   brand,
@@ -6,7 +9,6 @@ const ProductCard = ({
   amountRaised,
 }) => {
   const progressPercentage = (amountRaised / fundingGoal) * 100;
-  console.log(amountRaised);
 
   return (
     <div className="w-full max-w-xs bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl m-4">
@@ -50,102 +52,72 @@ const ProductCard = ({
 };
 
 const ProductGrid = () => {
-  const products = [
-    {
-      id: 1,
-      image: "https://via.placeholder.com/150/0000FF/FFFFFF?text=TechNova",
-      brand: "TechNova",
-      description:
-        "A cutting-edge AI startup revolutionizing the tech industry.",
-      fundingGoal: 50000,
-      amountRaised: 20000,
-    },
-    {
-      id: 2,
-      brand: "EcoEnergy",
-      description: "Providing affordable, sustainable energy solutions.",
-      image: "https://via.placeholder.com/150/008000/FFFFFF?text=EcoEnergy",
-      fundingGoal: 75000,
-      amountRaised: 30000,
-    },
-    {
-      id: 3,
-      brand: "Healthify",
-      description: "A healthcare platform connecting patients and doctors.",
-      image: "https://via.placeholder.com/150/FF0000/FFFFFF?text=Healthify",
-      fundingGoal: 60000,
-      amountRaised: 45000,
-    },
-    {
-      id: 4,
-      brand: "EduVerse",
-      description:
-        "Creating immersive learning experiences using virtual reality.",
-      image: "https://via.placeholder.com/150/FFA500/FFFFFF?text=EduVerse",
-      fundingGoal: 100000,
-      amountRaised: 70000,
-    },
-    {
-      id: 5,
-      brand: "GreenGro",
-      description:
-        "Dedicated to urban farming and fresh produce accessibility.",
-      image: "https://via.placeholder.com/150/00FFFF/FFFFFF?text=GreenGro",
-      fundingGoal: 30000,
-      amountRaised: 15000,
-    },
-  ];
-
   // const products = [
   //   {
-  //     image:
-  //       "https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-  //     brand: "Brand",
-  //     name: "Product Name",
-  //     price: "$149",
-  //     originalPrice: "$199",
+  //     id: 1,
+  //     image: "https://via.placeholder.com/150/0000FF/FFFFFF?text=TechNova",
+  //     brand: "TechNova",
+  //     description:
+  //       "A cutting-edge AI startup revolutionizing the tech industry.",
+  //     fundingGoal: 50000,
+  //     amountRaised: 20000,
   //   },
   //   {
-  //     image:
-  //       "https://images.unsplash.com/photo-1651950519238-15835722f8bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-  //     brand: "Brand",
-  //     name: "Product Name",
-  //     price: "$149",
-  //     originalPrice: "$199",
+  //     id: 2,
+  //     brand: "EcoEnergy",
+  //     description: "Providing affordable, sustainable energy solutions.",
+  //     image: "https://via.placeholder.com/150/008000/FFFFFF?text=EcoEnergy",
+  //     fundingGoal: 75000,
+  //     amountRaised: 30000,
   //   },
   //   {
-  //     image:
-  //       "https://images.unsplash.com/photo-1651950537598-373e4358d320?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MjV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-  //     brand: "Brand",
-  //     name: "Product Name",
-  //     price: "$149",
-  //     originalPrice: "$199",
+  //     id: 3,
+  //     brand: "Healthify",
+  //     description: "A healthcare platform connecting patients and doctors.",
+  //     image: "https://via.placeholder.com/150/FF0000/FFFFFF?text=Healthify",
+  //     fundingGoal: 60000,
+  //     amountRaised: 45000,
   //   },
   //   {
-  //     image:
-  //       "https://images.unsplash.com/photo-1651950540805-b7c71869e689?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-  //     brand: "Brand",
-  //     name: "Product Name",
-  //     price: "$149",
-  //     originalPrice: "$199",
+  //     id: 4,
+  //     brand: "EduVerse",
+  //     description:
+  //       "Creating immersive learning experiences using virtual reality.",
+  //     image: "https://via.placeholder.com/150/FFA500/FFFFFF?text=EduVerse",
+  //     fundingGoal: 100000,
+  //     amountRaised: 70000,
   //   },
   //   {
-  //     image:
-  //       "https://images.unsplash.com/photo-1649261191624-ca9f79ca3fc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-  //     brand: "Brand",
-  //     name: "Product Name",
-  //     price: "$149",
-  //     originalPrice: "$199",
-  //   },
-  //   {
-  //     image:
-  //       "https://images.unsplash.com/photo-1649261191606-cb2496e97eee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-  //     brand: "Brand",
-  //     name: "Product Name",
-  //     price: "$149",
-  //     originalPrice: "$199",
+  //     id: 5,
+  //     brand: "GreenGro",
+  //     description:
+  //       "Dedicated to urban farming and fresh produce accessibility.",
+  //     image: "https://via.placeholder.com/150/00FFFF/FFFFFF?text=GreenGro",
+  //     fundingGoal: 30000,
+  //     amountRaised: 15000,
   //   },
   // ];
+  const [startups, setStartups] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const getStartups = async () => {
+      try {
+        const data = await fetchStartups();
+        setStartups(data); // Set the startups in state
+      } catch (err) {
+        setError("Failed to fetch startups");
+        console.log("error: ", err);
+      } finally {
+        setLoading(false); // Stop loading
+      }
+    };
+    getStartups();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div className="text-center p-10">
@@ -154,16 +126,14 @@ const ProductGrid = () => {
         id="Projects"
         className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"
       >
-        {products.map((product, index) => (
+        {startups.map((startup) => (
           <ProductCard
-            key={index}
-            image={product.image}
-            brand={product.brand}
-            description={product.description}
-            amountRaised={product.amountRaised}
-            fundingGoal={product.fundingGoal}
-            // price={product.price}
-            // originalPrice={product.originalPrice}
+            key={startup._id}
+            image={startup.image}
+            brand={startup.brand}
+            description={startup.description}
+            amountRaised={startup.amountRaised}
+            fundingGoal={startup.fundingGoal}
           />
         ))}
       </section>
