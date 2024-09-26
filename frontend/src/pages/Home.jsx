@@ -1,7 +1,7 @@
 import Hero from "../components/hero";
-import Features from "../components/features";
+// import Features from "../components/features";
 import ProductGrid from "../components/products";
-import Footer from "../components/footer";
+// import Footer from "../components/footer";
 import GetStartedSection from "../components/cta";
 
 export default function Home  (){
@@ -10,8 +10,8 @@ export default function Home  (){
         <Hero/>
         <ProductGrid/>
         <GetStartedSection/>
-        <Features/>
-        <Footer/>
+        {/* <Features/> */}
+        {/* <Footer/> */}
         </>
     )
 };

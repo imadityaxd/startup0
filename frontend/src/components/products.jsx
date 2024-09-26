@@ -120,7 +120,7 @@ const ProductGrid = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="text-center p-10">
+    <div className="text-center p-10 pt-32">
       <h1 className="font-bold text-4xl mb-4">Top Startups in India in 2024</h1>
       <section
         id="Projects"

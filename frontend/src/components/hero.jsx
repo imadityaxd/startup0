@@ -1,21 +1,21 @@
-import { useState } from 'react'
-import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+// import { useState } from 'react'
+// import { Dialog, DialogPanel } from '@headlessui/react'
+// import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
+// const navigation = [
+//   { name: 'Home', href: '/' },
+//   { name: 'Startups', href: '/startup-list' },
+//   { name: 'Register', href: '/register' },
+//   { name: 'About Us', href: '/about' },
+// ]
 
 export default function Hero() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  // const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
     <div className="bg-white border-2">
-      <header className="absolute inset-x-0 top-0 z-50 ">
+      {/* <header className="absolute inset-x-0 top-0 z-50 ">
         <nav aria-label="Global" className="flex items-center justify-between  p-6 lg:px-8 ">
           <div className=" flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
@@ -96,7 +96,7 @@ export default function Hero() {
             </div>
           </DialogPanel>
         </Dialog>
-      </header>
+      </header> */}
 
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
