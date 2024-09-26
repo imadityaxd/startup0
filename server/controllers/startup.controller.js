@@ -12,13 +12,14 @@ export const getAllStartups = async (req, res) => {
 
 // Function to create a new startup
 export const createStartup = async (req, res) => {
-  const { image, brand, description, fundingGoal } = req.body;
+  const { brand, description, fundingGoal, amountRaised } = req.body;
 
   const startup = new Startup({
-    image,
+    image: `https://robohash.org/${brand}`,
     brand,
     description,
     fundingGoal,
+    amountRaised,
   });
 
   try {
