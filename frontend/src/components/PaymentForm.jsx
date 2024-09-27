@@ -26,7 +26,7 @@ const DummyPaymentForm = () => {
       setBalance(balance + parseInt(amount)); // Add amount to mock balance
 
       updateStartupDetails(startupId, { amountRaised: amount });
-      toast.success(`₹${amount} added to your account!`);
+      toast.success(`₹${amount} donated from your account!`);
       setAmount(""); // Reset the amount
     } else {
       toast.error("Please enter a valid amount");
