@@ -36,7 +36,7 @@ export default function Register() {
         <div className="mb-5">
           <label
             htmlFor="brand"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray"
           >
             Your Brand
           </label>
@@ -55,7 +55,7 @@ export default function Register() {
         <div className="mb-5">
           <label
             htmlFor="description"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray"
           >
             Description
           </label>
@@ -74,7 +74,7 @@ export default function Register() {
         <div className="mb-5">
           <label
             htmlFor="description"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray"
           >
             Funding Goal
           </label>

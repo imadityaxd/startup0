@@ -80,16 +80,16 @@ const SocialLinks = () => {
 const Footer = () => {
   const companyLinks = [
     { href: '#', text: 'About Us' },
-    { href: '#', text: 'Terms & Conditions' },
-    { href: '#', text: 'Privacy Policy' },
+    { href: '#', text: 'Startups' },
+    { href: '#', text: 'Register' },
     { href: '#', text: 'Contact Us' },
   ];
 
   const blogLinks = [
-    { href: '#', text: 'Getting Started With HTML and CSS' },
-    { href: '#', text: 'What Is Flex And When to Use It?' },
-    { href: '#', text: 'How TailwindCSS Can Help Your Productivity?' },
-    { href: '#', text: '5 Tips to Make Responsive Website' },
+    { href: '#', text: 'How a Russian startup model is inspiring India' },
+    { href: '#', text: 'India climbs to 39th rank in the Global Innovation Index 202' },
+    { href: '#', text: 'The Future of Innovation: Spotlight on Emerging Startups' },
+    { href: '#', text: 'Startup Culture: What Makes Them Thrive?' },
     { href: '#', text: 'See More' },
   ];
 
@@ -100,7 +100,7 @@ const Footer = () => {
 
         <div className="flex flex-wrap justify-between">
           <div className="w-full md:w-1/4 mb-6">
-            <SectionTitle>Company</SectionTitle>
+            <SectionTitle>General</SectionTitle>
             <LinkList links={companyLinks} />
           </div>
 
