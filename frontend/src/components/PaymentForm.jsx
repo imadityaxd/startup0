@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePaymentInputs } from "react-payment-inputs";
 import images from "react-payment-inputs/images";
 import { toast } from "react-hot-toast";
@@ -26,7 +26,7 @@ const DummyPaymentForm = () => {
       setBalance(balance + parseInt(amount)); // Add amount to mock balance
 
       updateStartupDetails(startupId, { amountRaised: amount });
-      toast.success(`₹${amount} donated from your account!`);
+      toast.success(`₹${amount} donated from your account to ${brand}`);
       setAmount(""); // Reset the amount
     } else {
       toast.error("Please enter a valid amount");
@@ -45,6 +45,9 @@ const DummyPaymentForm = () => {
       console.error("Error:", error);
     }
   };
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top on mount
+  }, []);
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-36 mb-16">
