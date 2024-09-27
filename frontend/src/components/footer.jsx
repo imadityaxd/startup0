@@ -112,6 +112,7 @@ const Footer = () => {
           <div className="w-full md:w-1/4 mb-6">
             <SectionTitle>Follow Us</SectionTitle>
             <SocialLinks />
+            <p className= "my-4">Email us : startupify@gmail.com</p>
           </div>
         </div>
 
