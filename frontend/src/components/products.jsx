@@ -4,7 +4,7 @@ import Loader from "./Loading";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({
+export const ProductCard = ({
   image,
   brand,
   description,

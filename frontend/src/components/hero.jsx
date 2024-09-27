@@ -1,11 +1,9 @@
 import Features from "./features";
+import ProductGrid from "./products";
 
 export default function Hero() {
-
   return (
     <div className="bg-white border-2">
-      
-
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
           aria-hidden="true"
@@ -69,6 +67,8 @@ export default function Hero() {
           />
         </div>
       </div>
+
+      <ProductGrid />
 
       <Features />
     </div>
