@@ -2,6 +2,7 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import companylogo from "../assets/st_logo.png"
 export default function Navbar() {
   const navigation = [
     { name: "Home", href: "/" },
@@ -23,8 +24,8 @@ export default function Navbar() {
               <span className="sr-only">Startupify</span>
               <img
                 alt=""
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto"
+                src={companylogo}
+                className="h-12 w-auto"
               />
             </a>
           </div>
