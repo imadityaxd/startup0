@@ -21,7 +21,6 @@ const startupSchema = new mongoose.Schema(
     },
     amountRaised: {
       type: Number,
-      default: 0,
     },
   },
   {

@@ -4,7 +4,8 @@ import Loader from "./Loading";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
-export const ProductCard = ({
+const ProductCard = ({
+  startupId,
   image,
   brand,
   description,
@@ -45,7 +46,7 @@ export const ProductCard = ({
             </p>
           </div>
 
-          <Link to="/payment">
+          <Link to="/payment" state={{ startupId, brand }}>
             <button className="w-full mt-4 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition duration-300">
               Contribute Now
             </button>
@@ -57,7 +58,6 @@ export const ProductCard = ({
 };
 
 const ProductGrid = () => {
-
   const [startups, setStartups] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -84,12 +84,12 @@ const ProductGrid = () => {
         <Loader />
       </div>
     );
-    if (error)
-      return (
-        <div className="w-full h-[80vh] flex justify-center items-center text-center">
-          <p className="text-red-500 text-3xl">Oops: {String(error)}</p>
-        </div>
-      );
+  if (error)
+    return (
+      <div className="w-full h-[80vh] flex justify-center items-center text-center">
+        <p className="text-red-500 text-3xl">Oops: {String(error)}</p>
+      </div>
+    );
 
   return (
     <div className="text-center p-10 pt-32">
@@ -101,6 +101,7 @@ const ProductGrid = () => {
         {startups.map((startup) => (
           <ProductCard
             key={startup._id}
+            startupId={startup._id}
             image={startup.image}
             brand={startup.brand}
             description={startup.description}

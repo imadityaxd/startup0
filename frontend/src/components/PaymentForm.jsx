@@ -1,33 +1,64 @@
-import { useState } from 'react';
-import { usePaymentInputs } from 'react-payment-inputs';
-import images from 'react-payment-inputs/images';
-import { toast } from 'react-hot-toast';
+import { useState } from "react";
+import { usePaymentInputs } from "react-payment-inputs";
+import images from "react-payment-inputs/images";
+import { toast } from "react-hot-toast";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
+
+const API_URL = "http://localhost:3000";
 
 const DummyPaymentForm = () => {
-  const { getCardNumberProps, getExpiryDateProps, getCVCProps, wrapperProps, getCardImageProps } = usePaymentInputs();
-  const [amount, setAmount] = useState('');
+  const { state } = useLocation();
+  const { startupId, brand } = state;
+  const {
+    getCardNumberProps,
+    getExpiryDateProps,
+    getCVCProps,
+    wrapperProps,
+    getCardImageProps,
+  } = usePaymentInputs();
+  const [amount, setAmount] = useState("");
   const [balance, setBalance] = useState(0); // Mock balance
 
   const handlePayment = (e) => {
     e.preventDefault();
     if (amount > 0) {
       setBalance(balance + parseInt(amount)); // Add amount to mock balance
+
+      updateStartupDetails(startupId, { amountRaised: amount });
       toast.success(`₹${amount} added to your account!`);
-      setAmount(''); // Reset the amount
+      setAmount(""); // Reset the amount
     } else {
-      toast.error('Please enter a valid amount');
+      toast.error("Please enter a valid amount");
+    }
+  };
+
+  const updateStartupDetails = async (id, updatedDetails) => {
+    try {
+      const response = await axios.put(
+        `${API_URL}/api/startups/${id}`,
+        updatedDetails
+      );
+      const data = await response.data;
+      console.log(data);
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-36 mb-16">
-      <h2 className="text-2xl font-semibold mb-4 text-center">Donate Us</h2>
-      <h3 className="text-xl mb-6 text-center">Current Balance: <span className="font-bold">₹{balance}</span></h3>
+      <h2 className="text-2xl font-semibold mb-4 text-center">Donate to {brand}</h2>
+      <h3 className="text-xl mb-6 text-center">
+        Current Balance: <span className="font-bold">₹{balance}</span>
+      </h3>
 
       <form onSubmit={handlePayment}>
         {/* Amount input */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Enter Amount</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Enter Amount
+          </label>
           <input
             type="number"
             value={amount}
@@ -40,10 +71,17 @@ const DummyPaymentForm = () => {
 
         {/* Credit card input (dummy, no validation needed) */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Card Number</label>
-          <div {...wrapperProps} className="flex items-center mt-1 border border-gray-300 rounded-md p-2">
+          <label className="block text-sm font-medium text-gray-700">
+            Card Number
+          </label>
+          <div
+            {...wrapperProps}
+            className="flex items-center mt-1 border border-gray-300 rounded-md p-2"
+          >
             <svg {...getCardImageProps({ images })} className="w-10 h-6 mr-2" />
-            <input {...getCardNumberProps()} placeholder="1234 1234 1234 1234"
+            <input
+              {...getCardNumberProps()}
+              placeholder="1234 1234 1234 1234"
               className="block w-full px-3 py-2 focus:outline-none sm:text-sm"
             />
           </div>
@@ -51,7 +89,9 @@ const DummyPaymentForm = () => {
 
         <div className="flex space-x-4">
           <div className="flex-1">
-            <label className="block text-sm font-medium text-gray-700">Expiry Date</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Expiry Date
+            </label>
             <input
               {...getExpiryDateProps()}
               placeholder="MM/YY"
@@ -60,7 +100,9 @@ const DummyPaymentForm = () => {
           </div>
 
           <div className="flex-1">
-            <label className="block text-sm font-medium text-gray-700">CVC</label>
+            <label className="block text-sm font-medium text-gray-700">
+              CVC
+            </label>
             <input
               {...getCVCProps()}
               placeholder="CVC"

@@ -18,7 +18,7 @@ app.use("/api/startups", router);
 
 connectDB()
   .then(() => {
-    app.listen(process.env.PORT, () => {
+    app.listen(PORT, () => {
       console.log(`⚙️ Server is running at port : ${process.env.PORT}`);
     });
   })

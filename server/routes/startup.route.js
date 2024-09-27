@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllStartups, createStartup } from '../controllers/startup.controller.js';
+import { getAllStartups, createStartup, updateStatup } from '../controllers/startup.controller.js';
 
 const router = express.Router();
 
@@ -8,5 +8,7 @@ router.get('/', getAllStartups);
 
 // POST route to add a new startup
 router.post('/', createStartup);
+
+router.put("/:id", updateStatup)
 
 export default router;
