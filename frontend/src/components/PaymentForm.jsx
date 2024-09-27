@@ -21,7 +21,7 @@ const DummyPaymentForm = () => {
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-36 mb-16">
-      <h2 className="text-2xl font-semibold mb-4 text-center">Dummy Payment</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-center">Donate Us</h2>
       <h3 className="text-xl mb-6 text-center">Current Balance: <span className="font-bold">₹{balance}</span></h3>
 
       <form onSubmit={handlePayment}>

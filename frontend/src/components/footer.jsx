@@ -11,7 +11,7 @@ const Logo = () => (
             <circle cx="369" cy="286" r="40" fill="#2962FF" />
           </g>
           <text fill="white" fontFamily="Nunito-Bold, Nunito" fontSize="512" fontWeight="bold">
-            <tspan x="654" y="518">Tailwindow</tspan>
+            <tspan x="654" y="518">Startupify</tspan>
           </text>
         </g>
       </g>
