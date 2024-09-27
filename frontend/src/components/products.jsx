@@ -12,8 +12,10 @@ const ProductCard = ({
   fundingGoal,
   amountRaised,
 }) => {
-  const progressPercentage = (amountRaised / fundingGoal) * 100;
-
+  let progressPercentage = (amountRaised / fundingGoal) * 100;
+  if (progressPercentage > 100) {
+    progressPercentage = 100;
+  }
   return (
     <div className="w-full max-w-xs bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl m-4">
       <a href="#" className="block">
