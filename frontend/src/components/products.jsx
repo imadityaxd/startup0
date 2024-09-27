@@ -18,7 +18,7 @@ const ProductCard = ({
   }
   return (
     <div className="w-full max-w-xs bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl m-4">
-      <a href="#" className="block">
+      {/* <Link href="#" className="block"> */}
         <img
           src={image}
           alt={brand}
@@ -54,7 +54,7 @@ const ProductCard = ({
             </button>
           </Link>
         </div>
-      </a>
+      {/* </Link> */}
     </div>
   );
 };
