@@ -31,10 +31,10 @@ const ProductCard = ({
           <p className="text-gray-600 text-sm">{description}</p>
 
           <div className="my-3">
-            <p className="text-gray-500 text-xs">
+            <p className="text-gray-900 text-sm font-semibold">
               Funding Goal: ${fundingGoal}
             </p>
-            <p className="text-gray-500 text-xs">
+            <p className="text-blue-500 text-sm font-semibold">
               Amount Raised: ${amountRaised}
             </p>
             <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
