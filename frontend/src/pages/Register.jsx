@@ -13,7 +13,6 @@ export default function Register() {
   };
   const [loading, setLoading] = useState(false);
   const [startupData, setStartupData] = useState(initialState);
-  // console.log(startupData);
 
   const submitHandler = async (e) => {
     e.preventDefault();
