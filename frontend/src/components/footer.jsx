@@ -116,7 +116,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-10 pt-4 text-center">
-          <p className="text-sm">© 2024 Tailwindow. All Rights Reserved.</p>
+          <p className="text-sm">© 2024 Startupify. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
